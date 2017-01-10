@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<link href="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.css" rel="stylesheet" type="text/css" />
+		<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+		<script src="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.js"></script>
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>	
+		<title>JS Bin</title>
+		<script>
+			function find_value()
+   {
+    var group1_Score = parseInt($('#group1 input:radio:checked').val());
+    var group2_Score = parseInt($('#group2 input:radio:checked').val());
+    var group3_Score = parseInt($('#group3 input:radio:checked').val());
+    var group4_Score = parseInt($('#group4 input:radio:checked').val());
+    var group5_Score = parseInt($('#group5 input:radio:checked').val());
+    var group6_Score = parseInt($('#group6 input:radio:checked').val());
+    var group7_Score = parseInt($('#group7 input:radio:checked').val());
+    var HScore = group1_Score + group2_Score;
+    var TScore = group3_Score + group4_Score + group5_Score + group6_Score + group7_Score;
+    var str = "";
+    // alert用
+    /*
+    str += "group1_Score : " + group1_Score + "\r\n";
+    str += "group2_Score : " + group2_Score + "\r\n";
+    str += "group3_Score : " + group3_Score + "\r\n";
+    str += "group4_Score : " + group4_Score + "\r\n";
+    str += "HScore : " + HScore + "\r\n";
+    */
+    
+    //innerHTML用
+    
+    str += "group1_Score : " + group1_Score + "<br/>";
+    str += "group2_Score : " + group2_Score + "<br/>";
+    str += "HScore : " + HScore + "<br/>";
+    str += "group3_Score : " + group3_Score + "<br/>";
+    str += "group4_Score : " + group4_Score + "<br/>";
+    str += "group5_Score : " + group5_Score + "<br/>";
+    str += "group6_Score : " + group6_Score + "<br/>";
+    str += "group7_Score : " + group7_Score + "<br/>";
+    str += "TScore : " + TScore + "<br/>";
+    
+    var img1 = "<img src='Conservative.png'/>";    
+    var img2 = "<img src='Moderately_Conservative.png'/>";    
+    var img3 = "<img src='Moderate.png'/>";  
+    var img4 = "<img src='Moderately_Aggressive.png'/>";  
+    var img5 = "<img src='Aggressive.png'/>";
+	var Description1 = "You are a conservative investor and this is an apporiate allocation for you.As a beginner in investment, normal return is suitable.";
+	var Description2 = "You are a moderately conservative investor and this is an apporiate allocation for you.You are more experienced than beginners. So you can try it.";
+	var Description3 = "You are a moderate investor,your attitude to risk is neutral and this is an apporiate allocation for you.";
+    var Description4 = "You are a moderately aggressive investor and this is an apporiate allocation for you.As an old in investment, higher risk higher return, right?";
+	var Description5 = "You are a aggressive investor and this is an apporiate allocation for you.Your are very experienced, so I don't need to say more, right?";   
+	//alert(str);
+    //document.getElementById("result").innerHTML = str;
+    //document.getElementById("result2").innerHTML = str;
+    //document.getElementById("result2").innerHTML = HScore;
+    //document.getElementById("pic2").innerHTML = img;
+    
+    if( ((3 <= HScore && HScore <=4) && TScore <= 18) | (HScore == 5 && TScore <= 15) | ((7 <= HScore && HScore <= 9) && TScore <= 12) | ((10 <= HScore && HScore <= 12) && TScore <= 11) | ((14 <= HScore && HScore <= 18) && TScore <= 10) ){
+ document.getElementById("pic2").innerHTML = img1;
+ document.getElementById("Description").innerHTML = Description1;		
+}
+else if( ((3 <= HScore && HScore <=4) && (19 <= TScore && TScore <=31)) | (HScore == 5 && (16 <= TScore && TScore <=24)) | ((7 <= HScore && HScore <= 9) && (13 <= TScore && TScore <=20)) | ((10 <= HScore && HScore <= 12) && (12 <= TScore && TScore <=18)) | ((14 <= HScore && HScore <= 18) && (11 <= TScore && TScore <=17)) ){
+ document.getElementById("pic2").innerHTML = img2;
+ document.getElementById("Description").innerHTML = Description2;
+}
+else if( ((3 <= HScore && HScore <=4) && (32 <= TScore && TScore <=40)) | (HScore == 5 && (25 <= TScore && TScore <=35)) | ((7 <= HScore && HScore <= 9) && (21 <= TScore && TScore <=28)) | ((10 <= HScore && HScore <= 12) && (19 <= TScore && TScore <=26)) | ((14 <= HScore && HScore <= 18) && (18 <= TScore && TScore <=24)) ){
+ document.getElementById("pic2").innerHTML = img3;
+ document.getElementById("Description").innerHTML = Description3;	
+}
+else if( (HScore == 5 && (36 <= TScore && TScore <=40)) | ((7 <= HScore && HScore <= 9) && (29 <= TScore && TScore <=37)) | ((10 <= HScore && HScore <= 12) && (27 <= TScore && TScore <=34)) | ((14 <= HScore && HScore <= 18) && (25 <= TScore && TScore <=31)) ){
+ document.getElementById("pic2").innerHTML = img4;
+ document.getElementById("Description").innerHTML = Description4;	
+}
+else if( ((7 <= HScore && HScore <= 9) && (38 <= TScore && TScore <=40)) | ((10 <= HScore && HScore <= 12) && (35 <= TScore && TScore <=40)) | ((14 <= HScore && HScore <= 18) && (32 <= TScore && TScore <=40)) ){
+ document.getElementById("pic2").innerHTML = img5;
+ document.getElementById("Description").innerHTML = Description5;	
+}
+   }
+		window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+  t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+   t._e.push(f);
+  };
+
+  return t;
+ }(document, "script", "twitter-wjs"));	
+		</script>
+		<style>
+.pl1 {
+    padding-left: 1cm;
+}
+.pl2 {
+    padding-left: 5cm;
+}
+</style>
+	</head>
+	<body>
+<div data-role="page" id="iKnowUrType" data-theme="a">
+			<div data-role="header">
+				<h1>iKnowUrType</h1>
+			</div>
+			<div data-role="content">
+			<div align="center"><img src="logo.png" width="100%"/></div>
+				<h2>Description:</h2>
+				<h2>This App is designed to simplify the traditional KYC(Know Your Customers) procedure,which make investors be able to know themselves on their phones.</h2>
+				<h2>Special Thanks</h2>
+				<h2>Helen Lin and Dr.Min Yuh Day</h2>
+				<br/>
+				<br/>
+				<h2>Notice:</h2>
+				<p>I don't own the original copyright</p>
+				<p>The Questionnaire in this app is designed by Charles SCHWAB.</p>
+				<p>Copyright © 1971-2017 Charles SCHWAB All rights reserved.</p>
+				<div><a href="https://twitter.com/s880193811202" class="twitter-follow-button" data-show-count="false">Follow @Author</a></div>
+				<div><a href="https://www.schwab.com"><img src="CHARLES.png" /></a></div>
+				<!-- 
+				<input type="button" value="下一頁" onclick="self.location.href='#select'"/>
+				-->
+				<div><a href="#page1" data-ajax="false" data-role="button" data-icon="grid" data-iconpos="right">Start</a></div>			
+			</div>
+	 </div>
+		<div data-role="page" id="page1" data-theme="a">
+			<div data-role="header">
+				<h1>Home</h1>
+			</div>
+			<div data-role="content">
+			<h1>SECTION 1: TIME HORIZON</h1>
+			<!-- group 1 -->
+				<fieldset data-role="controlgroup" id="group1">
+					<legend>1. I plan to begin withdrawing money from my investments in:</legend>
+					<input type="radio" name="rc1" id="rc1" value="1"/>
+					<label for="rc1">Less than 3 years</label>
+
+					<input type="radio" name="rc1" id="rc2" value="3"/>
+					<label for="rc2">3–5 years</label>
+
+					<input type="radio" name="rc1" id="rc3" value="7"/>
+					<label for="rc3">6–10 years</label>
+
+					<input type="radio" name="rc1" id="rc4" value="10"/>
+					<label for="rc4">11 years or more</label>				
+				</fieldset>
+			<!-- group 2 -->	
+				<fieldset data-role="controlgroup" id="group2">
+					<legend>2. Once I begin withdrawing funds from my investments, I plan to spend all of the funds in:</legend>
+					<input type="radio" name="rc2" id="rc1" value="0"/>
+					<label for="rc1">Less than 2 years</label>
+
+					<input type="radio" name="rc2" id="rc2" value="1"/>
+					<label for="rc2">2–5 years</label>
+
+					<input type="radio" name="rc2" id="rc3" value="4"/>
+					<label for="rc3">6–10 years</label>
+
+					<input type="radio" name="rc2" id="rc4" value="8"/>
+					<label for="rc4">11 years or more</label>						
+				</fieldset>
+				<h1>SECTION 2:RISK TOLERANCE</h1>
+			<!-- group 3 -->			
+				<fieldset data-role="controlgroup" id="group3">
+					<legend>3. I would describe my knowledge of investments as:</legend>
+					<input type="radio" name="rc3" id="rc1" value="0"/>
+					<label for="rc1">None</label>
+
+					<input type="radio" name="rc3" id="rc2" value="2"/>
+					<label for="rc2">Limited</label>
+
+					<input type="radio" name="rc3" id="rc3" value="4"/>
+					<label for="rc3">Good</label>
+
+					<input type="radio" name="rc3" id="rc4" value="6"/>
+					<label for="rc4">Extensive</label>						
+				</fieldset>
+			<!-- group 4 -->			
+				<fieldset data-role="controlgroup" id="group4">
+					<legend>4. When I invest my money, I am:</legend>
+					<input type="radio" name="rc4" id="rc1" value="0"/>
+					<label for="rc1">Most concerned about my investment losing value</label>
+
+					<input type="radio" name="rc4" id="rc2" value="4"/>
+					<label for="rc2">Equally concerned about my investment losingor gaining value</label>
+
+					<input type="radio" name="rc4" id="rc3" value="8"/>
+					<label for="rc3">Most concerned about my investment gaining value</label>
+                </fieldset>
+			<!-- group 5 -->			
+				<fieldset data-role="controlgroup" id="group5">
+					<legend>5. Select the investments you currently own or have owned in the past with the highest number of points.</legend>
+					<input type="radio" name="rc5" id="rc1" value="0"/>
+					<label for="rc1">Money market funds or cash investments  0</label>
+
+					<input type="radio" name="rc5" id="rc2" value="3"/>
+					<label for="rc2">Bonds and/or bond funds  3</label>
+
+					<input type="radio" name="rc5" id="rc3" value="6"/>
+					<label for="rc3">Stocks and/or stock funds  6</label>
+					
+					<input type="radio" name="rc5" id="rc4" value="8"/>
+					<label for="rc4">International securities and/or international funds  8</label>
+					<h4>Example: You now own stock funds. In the past, you’ve purchased international securities. Your point score would be 8.</h4>
+                </fieldset>
+			<!-- group 6 -->			
+				<fieldset data-role="controlgroup" id="group6">
+					<legend>6. Consider this scenario:</legend>
+					<h4>Imagine that in the past three months, the overall stock market lost 25% of its value. An individual stock investment you own also lost 25% of its value. What would you do?</h4>
+					<input type="radio" name="rc6" id="rc1" value="0"/>
+					<label for="rc1">Sell all of my shares</label>
+
+					<input type="radio" name="rc6" id="rc2" value="2"/>
+					<label for="rc2">Sell some of my shares</label>
+
+					<input type="radio" name="rc6" id="rc3" value="5"/>
+					<label for="rc3">Do nothing</label>
+					
+					<input type="radio" name="rc6" id="rc4" value="8"/>
+					<label for="rc4">Buy more shares</label>
+				</fieldset>
+			<!-- group 7 -->			
+				<fieldset data-role="controlgroup" id="group7">
+					<legend>7.Review the situations below.</legend>
+					<h4>We’ve outlined the most likely best- and worst-case annual returns of  ve hypothetical investment plans. Which range of possible outcomes is most acceptable to you?</h4>
+					<h4>The figures are hypothetical and do not represent the performance of any particular investment.</h4>
+					<input type="radio" name="rc7" id="rc1" value="0"/>
+					<label for="rc1">Plan A: Average Annual Return:7.2%<br/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Best-Case:16.3%<br/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Worst-Case:–5.6%</label>
+					
+					<input type="radio" name="rc7" id="rc2" value="3"/>
+					<label for="rc2">Plan B: Average Annual Return:9%<br/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Best-Case:25%<br/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Worst-Case:–12.1%</label>
+					
+					<input type="radio" name="rc7" id="rc3" value="6"/>
+					<label for="rc3">Plan C: Average Annual Return:10.4%<br/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Best-Case:33.6%<br/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Worst-Case:–18.2%</label>
+					
+					<input type="radio" name="rc7" id="rc4" value="8"/>
+					<label for="rc4">Plan D: Average Annual Return:11.7%<br/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Best-Case:42.8%<br/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Worst-Case:–24%</label>
+	
+					<input type="radio" name="rc7" id="rc5" value="10"/>
+					<label for="rc5">Plan E: Average Annual Return:12.5%<br/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Best-Case:50%<br/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Worst-Case:–28.2%</label>
+				</fieldset>
+				<a href="#page2" style="text-decoration:none;" data-transition="none"><input type="button" value="result" onclick="find_value()"></a> 
+			
+				<div>
+					<p id="result"></p>
+				</div>
+				
+			</div>
+			<div data-role="footer" align="center">				
+			</div>
+		</div>
+		
+		
+		<div data-role="page" id="page2" data-theme="a">
+			<div data-role="header">
+				<h1>result</h1>
+				<a href="#page1" data-ajax="false" data-icon="back" class="ui-btn-left" onclick="location.reload(true)">back</a>
+			</div>
+			<div data-role="content">
+			
+				<div>
+					<p id="result2"></p>
+					<div id="pic2"align=center width=50%></div>
+					<div id="Description"align=center width=50%></div>
+				</div>
+				
+			</div>
+			<div data-role="footer" align="center">
+			</div>
+		</div>
+		
+		
+	</body>
+</html>
